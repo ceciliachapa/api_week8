@@ -14,12 +14,12 @@ export const useAPI = () => {
     const response = await api.get("Characters");
     characters.value = response.data;
   };
-  const getCharacter = async () => {
+  const getCharacter = async (id) => {
     const response = await api.get(`Characters/${id}`);
-    character.value = response.data[0];
+    character.value = response.data;
   };
+
   getChars();
-  getCharacter();
 
   return { characters, getChars, character, getCharacter };
 };
